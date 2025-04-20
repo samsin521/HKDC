@@ -9,4 +9,4 @@ booking_list.html List of user bookings
 booking_detail.html Single booking detail
 navbar.html Common nav fragment
 home.html Landing/home page after login
-error.html Error page fallback
+error.html Error page fallback# HKDC
