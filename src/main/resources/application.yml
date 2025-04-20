@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: hkdc
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/hkdc?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: init
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  thymeleaf:
+    cache: false
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8090
+  error:
+    whitelabel:
+      enabled: false

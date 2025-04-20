@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Clinics</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>All Clinics</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Open Hours</th>
+            <th><!-- action column --></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="clinic : ${clinics}">
+            <td th:text="${clinic.name}">Clinic Name</td>
+            <td th:text="${clinic.address}">Clinic Address</td>
+            <td th:text="${clinic.openHours}">Open Hours</td>
+            <td>
+                <a class="btn btn-sm btn-primary"
+                   th:href="@{'/clinics/' + ${clinic.id}}">
+                    View
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

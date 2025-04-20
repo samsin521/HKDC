@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title layout:fragment="title">Dentists</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h2>All Dentists</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="d : ${dentists}">
+            <td th:text="${d.firstName + ' ' + d.lastName}">Dr. Name</td>
+            <td th:text="${d.email}">email@example.com</td>
+            <td>
+                <a class="btn btn-sm btn-primary"
+                   th:href="@{/dentists/{id}/schedule(id=${d.id})}">
+                    View Schedule
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

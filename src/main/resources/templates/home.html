@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="card shadow p-4">
+        <h2 class="mb-3">Welcome, <span th:text="${currentUser.firstName}">User</span>!</h2>
+        <h5 class="text-muted" th:text="${currentUser.lastName}">Lastname</h5>
+        <p class="mb-4"><strong>Role:</strong> <span th:text="${currentUser.role}">Role</span></p>
+
+        <div th:if="${#strings.equalsIgnoreCase(currentUser.role, 'PATIENT')}">
+            <p class="text-success">You are logged in as a <strong>Patient</strong>.</p>
+        </div>
+
+        <div th:if="${#strings.equalsIgnoreCase(currentUser.role, 'ADMIN')}">
+            <p class="text-primary">You are logged in as an <strong>Admin</strong>.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

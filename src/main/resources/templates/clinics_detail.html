@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Clinic Details</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h2 th:text="${clinic.name}">Clinic Name</h2>
+    <p><strong>Address:</strong> <span th:text="${clinic.address}"></span></p>
+    <p><strong>Open Hours:</strong> <span th:text="${clinic.openHours}"></span></p>
+
+    <h4 class="mt-4">Available Appointment Slots</h4>
+
+    <div th:if="${#lists.isEmpty(slots)}">
+        <p class="text-muted">No available slots for this clinic at the moment.</p>
+    </div>
+
+    <table class="table" th:if="${!#lists.isEmpty(slots)}">
+        <thead>
+        <tr>
+            <th>Dentist</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="slot : ${slots}">
+            <td th:text="${slot.dentistName}">Dr. Lam</td>
+            <td th:text="${slot.date}">2025-04-22</td>
+            <td th:text="${slot.startTime} + ' - ' + ${slot.endTime}">09:00 - 10:00</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

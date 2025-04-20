@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm"
+     th:fragment="navbar(currentUser)">
+    <div class="container">
+        <a class="navbar-brand fw-bold" th:href="@{/}">HKDC</a>
+        <button class="navbar-toggler" data-bs-target="#navbarNav"
+                data-bs-toggle="collapse"
+                type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" th:href="@{/clinics}">Clinics</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/dentists}">Dentists</a></li>
+                <li class="nav-item" sec:authorize="hasRole('PATIENT')">
+                    <a class="nav-link" th:href="@{/bookings/new}">Book Appointment</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasRole('PATIENT')">
+                    <a class="nav-link" th:href="@{/bookings}">My Bookings</a>
+                </li>
+            </ul>
+
+            <div class="d-flex align-items-center">
+        <span class="text-white me-3" sec:authorize="isAuthenticated()">
+          Signed in as <strong sec:authentication="principal.firstName"></strong>
+        </span>
+                <form method="post" sec:authorize="isAuthenticated()" th:action="@{/logout}">
+                    <button class="btn btn-outline-light btn-sm">Logout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+</body>
+</html>

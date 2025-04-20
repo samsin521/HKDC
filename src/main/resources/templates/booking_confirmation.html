@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title layout:fragment="title">Booking Confirmed</title>
+</head>
+<body>
+<div class="text-center" layout:fragment="content">
+    <div class="alert alert-success">
+        <h3>Your appointment has been booked!</h3>
+        <p>Thank you. A confirmation email will be sent shortly.</p>
+        <a class="btn btn-link" th:href="@{/}">Back to Home</a>
+    </div>
+</div>
+</body>
+</html>
