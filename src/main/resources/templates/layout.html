@@ -1,18 +1,36 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <title layout:title-pattern="$LAYOUT_TITLE - HKDC">HKDC</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title layout:title-pattern="HKDC Dental - $CONTENT_TITLE">HKDC Dental</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
 </head>
-<body class="bg-light">
 
-<div th:replace="fragments/navbar :: navbar(currentUser=${currentUser})"></div>
+<body>
+<!-- Navbar Fragment -->
+<div th:replace="fragments/navbar :: navbar(${currentUser})"></div>
 
-<div class="container mt-4" layout:fragment="content">
-</div>
+<!-- Main Content -->
+<main class="container py-5 min-vh-100" layout:fragment="content">
+    <!-- content will be injected here -->
+</main>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+        <small>&copy; 2025 HKDC Dental Care. All rights reserved.</small>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

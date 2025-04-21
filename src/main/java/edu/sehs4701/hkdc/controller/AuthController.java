@@ -25,12 +25,7 @@ public class AuthController {
     private final AuthService authService;
 
     @GetMapping({"/", "/home"})
-    public String homePage(Model model, Authentication authentication) {
-        if (authentication == null || !authentication.isAuthenticated()) {
-            return "redirect:/login";
-        }
-        User currentUser = (User) authentication.getPrincipal();
-        model.addAttribute("currentUser", currentUser);
+    public String homePage() {
         return "home";
     }
 
@@ -84,6 +79,6 @@ public class AuthController {
 
     @PostMapping("/logout")
     public String logout() {
-        return "redirect:/login?logout";
+        return "redirect:/";
     }
 }

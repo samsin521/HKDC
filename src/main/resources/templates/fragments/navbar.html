@@ -32,6 +32,9 @@
                 <form method="post" sec:authorize="isAuthenticated()" th:action="@{/logout}">
                     <button class="btn btn-outline-light btn-sm">Logout</button>
                 </form>
+                <form method="post" sec:authorize="!isAuthenticated()" th:action="@{/login}">
+                    <button class="btn btn-outline-light btn-sm">Login</button>
+                </form>
             </div>
         </div>
     </div>

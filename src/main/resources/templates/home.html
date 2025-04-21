@@ -1,25 +1,115 @@
 <!DOCTYPE html>
-<html layout:decorate="~{layout}"
+<html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org">
+      layout:decorate="~{layout}">
 <head>
-    <title>Home</title>
+    <title layout:title="Home">Home</title>
 </head>
+
 <body>
 <div layout:fragment="content">
-    <div class="card shadow p-4">
-        <h2 class="mb-3">Welcome, <span th:text="${currentUser.firstName}">User</span>!</h2>
-        <h5 class="text-muted" th:text="${currentUser.lastName}">Lastname</h5>
-        <p class="mb-4"><strong>Role:</strong> <span th:text="${currentUser.role}">Role</span></p>
 
-        <div th:if="${#strings.equalsIgnoreCase(currentUser.role, 'PATIENT')}">
-            <p class="text-success">You are logged in as a <strong>Patient</strong>.</p>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Expert care for a lifetime of smiles</h1>
+            <p>Innovative dental care across 5 locations in Hong Kong</p>
+            <a href="#" class="btn btn-primary btn-lg">Book Appointment</a>
         </div>
+    </section>
 
-        <div th:if="${#strings.equalsIgnoreCase(currentUser.role, 'ADMIN')}">
-            <p class="text-primary">You are logged in as an <strong>Admin</strong>.</p>
+    <!-- Stats Section -->
+    <section class="stats-section text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"><h3>20K+</h3><p>Happy Patients</p></div>
+                <div class="col-md-4"><h3>95K+</h3><p>Appointments Served</p></div>
+                <div class="col-md-4"><h3>40+</h3><p>Years of Experience</p></div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section text-center">
+        <div class="container">
+            <h2 class="section-title">Dental Services Tailored to You</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/col1.jpg" class="img-fluid rounded mb-3 service-img" alt="General Dentistry">
+                    <h5>General Dentistry</h5>
+                    <p>Cleaning, fillings, and preventive care for the whole family.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="/images/col2.jpg" class="img-fluid rounded mb-3 service-img" alt="Orthodontics">
+                    <h5>Orthodontics</h5>
+                    <p>Modern braces and aligners to help you achieve a confident smile.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="/images/col3.jpg" class="img-fluid rounded mb-3 service-img" alt="Cosmetic Dentistry">
+                    <h5>Cosmetic Dentistry</h5>
+                    <p>Teeth whitening, veneers, and smile makeovers tailored to you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section py-5">
+        <div class="container d-flex align-items-center justify-content-center flex-column flex-md-row gap-4">
+            <!-- Patient Image -->
+            <div class="testimonial-image">
+                <img src="/images/testimonial1.jpg" alt="Smiling Patient" class="img-fluid rounded">
+            </div>
+
+            <!-- Testimonial Card -->
+            <div class="testimonial-card p-4 shadow-sm rounded bg-white">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="/images/avatar.jpg" alt="Liza Adam" class="rounded-circle me-3" style="width: 48px; height: 48px;">
+                    <div>
+                        <h6 class="mb-0 fw-bold">Liza Adam</h6>
+                        <small class="text-muted">Marketing</small>
+                    </div>
+                    <div class="ms-auto text-warning">
+                        ★★★★★
+                    </div>
+                </div>
+                <p class="mb-0 text-muted">
+                    “Felt at ease from the moment I arrived. Dr. Dentist’s Name took the time to explain every step of my treatment, making sure I was comfortable throughout the process. Now, I’m proud to show off my smile.”
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experts Section -->
+    <section class="experts-section py-5 text-center bg-light">
+        <div class="container">
+            <h2 class="section-title mb-5">Meet Our Dental Experts</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="expert-card">
+                        <img src="/images/expert1.jpg" class="expert-img mb-3" alt="Dr. Sarah Johnson">
+                        <h6 class="fw-bold">Dr. Sarah Johnson</h6>
+                        <p class="text-muted">Senior Dental Surgeon</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="expert-card">
+                        <img src="/images/expert2.jpg" class="expert-img mb-3" alt="Dr. Kevin Lee">
+                        <h6 class="fw-bold">Dr. Kevin Lee</h6>
+                        <p class="text-muted">Orthodontist</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="expert-card">
+                        <img src="/images/expert3.jpg" class="expert-img mb-3" alt="Dr. Mei Wong">
+                        <h6 class="fw-bold">Dr. Mei Wong</h6>
+                        <p class="text-muted">Cosmetic Specialist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </div>
 </body>
 </html>
