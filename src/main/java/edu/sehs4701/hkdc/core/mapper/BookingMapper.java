@@ -16,9 +16,12 @@ public class BookingMapper {
 
     public BookingResponseDto toBookingDto(Bookings p) {
         BookingResponseDto dto = new BookingResponseDto();
+        System.out.println("Dental Service Name: " + p.getDentalServiceName());
         dto.setId(p.getId());
         dto.setDate(p.getDate());
         dto.setDayOfWeek(p.getDayOfWeek());
+        dto.setUserFirstName(p.getPatientFirstName());
+        dto.setUserLastName(p.getPatientLastName());
         dto.setServiceName(p.getDentalServiceName());
         dto.setDentistFirstName(p.getDentistFirstName());
         dto.setDentistLastName(p.getDentistLastName());

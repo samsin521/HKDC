@@ -21,8 +21,6 @@ public class SignupRequest {
 
     private String phoneNumber;
 
-    // new code added to provide gender, DOB and address and pass it to the method to register new patient
-
     private Gender gender;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")

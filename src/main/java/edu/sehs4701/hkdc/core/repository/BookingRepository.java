@@ -38,4 +38,8 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     boolean existsByDentistScheduleAndDateAndStartTime(DentistSchedule schedule, LocalDate date, LocalTime startTime);
 
     List<Booking> findByDentistScheduleIdAndDate(Long id, LocalDate date);
+
+    @Query("SELECT b FROM Booking b WHERE b.patient.id = :patientId")
+    List<Bookings> findBookingsByPatientId(Long patientId);
+
 }

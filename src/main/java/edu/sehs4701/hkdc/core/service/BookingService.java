@@ -21,4 +21,6 @@ public interface BookingService {
     List<BookingResponseDto> getBookingsForUser(User currentUser);
 
     List<AppointmentSlotResponseDto> getAvailableAppointmentSlots();
+
+
 }

@@ -16,8 +16,14 @@ spring:
     hibernate:
       ddl-auto: update
 
-server:
-  port: 8090
-  error:
-    whitelabel:
-      enabled: false
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: hkdca432@gmail.com
+    password: xorqwqegugmeqenc
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

@@ -17,8 +17,8 @@ import edu.sehs4701.hkdc.core.repository.AppointmentSlotRepository;
 import edu.sehs4701.hkdc.core.repository.BookingRepository;
 import edu.sehs4701.hkdc.core.repository.ClinicRepository;
 import edu.sehs4701.hkdc.core.repository.DentalServiceRepository;
-import edu.sehs4701.hkdc.core.repository.DentistScheduleRepository;
 import edu.sehs4701.hkdc.core.repository.PatientRepository;
+import edu.sehs4701.hkdc.core.repository.projection.Bookings;
 import edu.sehs4701.hkdc.core.service.BookingService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +31,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class BookingServiceImpl implements BookingService {
+
+
 
     @NonNull
     private final ClinicRepository clinicRepo;
@@ -134,6 +136,11 @@ public class BookingServiceImpl implements BookingService {
         return appointmentSlotRepository.findByIsBookedFalseAndDateAfter(LocalDate.now()).stream()
                 .map(appointmentSlotMapper::toDto)
                 .toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Bookings> getBookingsForEmail(User currentUser) {
+        return bookingRepo.findBookingsByPatientId(currentUser.getId());
     }
 
 }

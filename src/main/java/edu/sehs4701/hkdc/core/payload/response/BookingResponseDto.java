@@ -20,4 +20,10 @@ public class BookingResponseDto {
     private String clinicAddress;
     private LocalTime startTime;
     private LocalTime endTime;
+    private String ServiceName;
+    private String userFirstName;
+    private String userLastName;
+
+
+
 }
